@@ -9,9 +9,11 @@ const readFile = (file) =>
 
 const sumItemsInArray = (array) => array.reduce((sum, item) => sum + item, 0);
 const multiplyItemsInArray = (array) => array.reduce((product, item) => product * item, 1);
+const countCharsInString = (string, char) => string.split('').filter(x => x === char).length;
 
 module.exports = {
   readFile,
   sumItemsInArray,
-  multiplyItemsInArray
+  multiplyItemsInArray,
+  countCharsInString
 }

@@ -1,0 +1,27 @@
+{
+  "name": "advent-of-code-2020",
+  "version": "1.0.0",
+  "description": "Solutions for advent of code 2020 puzzles in javascript.",
+  "main": "helpers.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha 'src/test/**/*.js' --exit --timeout 10000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/domengabrovsek/advent-of-code-2020.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/domengabrovsek/advent-of-code-2020/issues"
+  },
+  "homepage": "https://github.com/domengabrovsek/advent-of-code-2020#readme",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1"
+  }
+}
