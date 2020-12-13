@@ -2,10 +2,12 @@
 
 const { expect } = require('chai');
 const { countCharsInString, sumItemsInArray, multiplyItemsInArray } = require('../helpers');
+const { switchCommand } = require('../day-8/index');
+const { getNumberCandidates } = require('../day-9/index');
 
 describe('tests for helper functions', () => {
 
-  describe(' tests for multiplyItemsInArray()', () => {
+  describe('tests for multiplyItemsInArray()', () => {
     const testCases = [
       { array: [1], expectedResult: 1 },
       { array: [0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 0, 0], expectedResult: 0 },
@@ -24,7 +26,7 @@ describe('tests for helper functions', () => {
     })
   })
 
-  describe(' tests for sumItemsInArray()', () => {
+  describe('tests for sumItemsInArray()', () => {
     const testCases = [
       { array: [1], expectedResult: 1 },
       { array: [0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 0, 0], expectedResult: 6 },
@@ -61,4 +63,42 @@ describe('tests for helper functions', () => {
       })
     })
   })
+
+  describe('tests for switchCommand() - day 8', () => {
+
+    const testCases = [
+      { command: "jmp +123", expectedResult: "nop +123" },
+      { command: "jmp -123", expectedResult: "nop -123" },
+      { command: "nop +123", expectedResult: "jmp +123" },
+      { command: "nop -123", expectedResult: "jmp -123" }
+    ]
+
+    testCases.forEach(tc => {
+      it(`command: ${tc.command}, expected result: ${tc.expectedResult} `, () => {
+        const result = switchCommand(tc.command);
+        expect(result).to.be.equal(tc.expectedResult);
+      })
+    })
+  });
+
+  describe('tests for getNumberCandidates() - day 9', () => {
+
+    const testCases = [
+      { numbers: [0], expectedResult: [0] },
+      { numbers: [0, 1], expectedResult: [1] },
+      { numbers: [0, 1, 2], expectedResult: [1, 2, 3] },
+      { numbers: [0, 1, 2, 3], expectedResult: [1, 2, 3, 4, 5] },
+      { numbers: [0, 1, 2, 3, 4], expectedResult: [1, 2, 3, 4, 5, 6, 7] },
+      { numbers: [0, 1, 2, 3, 4, 5], expectedResult: [1, 2, 3, 4, 5, 6, 7, 8, 9] },
+      { numbers: [0, 1, 2, 3, 4, 5, 6], expectedResult: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] },
+    ]
+
+    testCases.forEach(tc => {
+      it(`numbers: ${tc.numbers}, expected result: ${tc.expectedResult} `, () => {
+        const result = getNumberCandidates(tc.numbers);
+        expect(result).to.have.same.members(tc.expectedResult);
+      })
+    })
+  });
+
 });
