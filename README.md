@@ -1,6 +1,6 @@
 # advent-of-code-2020
 
-## Warning: code was written for fun and does not represent my professional coding style.
+### Warning: this code was written for fun and does not necessarily represent my professional coding style.
 
 Solutions for advent of code 2020 puzzles in javascript. 
 
